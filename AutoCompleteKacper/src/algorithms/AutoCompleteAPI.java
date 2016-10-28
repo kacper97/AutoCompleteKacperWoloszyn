@@ -34,11 +34,12 @@ public class AutoCompleteAPI
 				String[] dataList= inputLine.split(delims); // parse user details string
 				weight = Double.parseDouble(dataList[0]); // changes weight from String to Double as it is read in from the Link
 				word = dataList[1];
+				termList.add(new Term (weight,word));
 				}
-		        termList.add(new Term (weight,word));
+		
 		 	}
 		    finally 
-		    {
+		    {	
 		    	if (in != null)
 		    	{
 		        in.close();
