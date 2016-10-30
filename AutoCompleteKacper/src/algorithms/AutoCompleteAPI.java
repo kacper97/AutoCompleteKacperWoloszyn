@@ -31,9 +31,9 @@ public class AutoCompleteAPI
 		 //reading the weights and terms
 			while ((inputLine = in.readLine()) != null)
 			{
-				String[] dataList= inputLine.split(delims); // parse user details string
-				weight = Double.parseDouble(dataList[0]); // changes weight from String to Double as it is read in from the Link
-				word = dataList[1];
+				String[] data= inputLine.split(delims); // parse user details string
+				weight = Double.parseDouble(data[0]); // changes weight from String to Double as it is read in from the Link
+				word = data[1];
 				termList.add(new Term (weight,word));
 				}
 		
