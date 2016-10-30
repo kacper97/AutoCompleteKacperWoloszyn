@@ -1,7 +1,7 @@
 package algorithms;
 
 public class BruteAutoComplete implements AutoComplete{
-	AutoCompleteAPI terms;
+	AutoCompleteAPI terms;  //implementing terms from AutoCompleteAPI
 	private double weightOfWord; // private field
 	
 	@Override
@@ -22,9 +22,20 @@ public class BruteAutoComplete implements AutoComplete{
 	}
 
 	@Override
-	public String bestMatch(String prefix) {
-		// TODO Auto-generated method stub
-		return null;
+	public String bestMatch(String prefix) // returns the highest matched word or null if no matched words exist
+	{
+		String bestTerm = null;
+		if(prefix !=null) //if prefix is not empty go into the loop 
+		{
+			Boolean matchObtained = false; // Initializing to false 
+			for(int i=0; matchObtained ==false && i<terms.termList.size(); i++) // for int i, matchfound is false AND (&&) i is less then the value of terms in the arrayList.
+			{
+				matchObtained =true;
+				return terms.termList.get(i).getWord();
+			}
+			
+		}
+		return bestTerm;
 	}
 
 	@Override
