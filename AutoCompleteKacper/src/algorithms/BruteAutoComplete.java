@@ -25,6 +25,7 @@ public class BruteAutoComplete implements AutoComplete{
 	public String bestMatch(String prefix) // returns the highest matched word or null if no matched words exist
 	{
 		String bestTerm = null;
+		String enquire = terms.termList.getText();
 		if(prefix !=null) //if prefix is not empty go into the loop 
 		{
 			Boolean matchObtained = false; // Initializing to false 
@@ -38,10 +39,18 @@ public class BruteAutoComplete implements AutoComplete{
 		return bestTerm;
 	}
 
+    // Returns the highest weighted k matching terms (in descending order of weight), as an
+    // iterable.
+    // If fewer than k matches, return all matching terms (in descending order
+    // of weight).
 	@Override
-	public Iterable<String> matches(String prefix, int k) {
+	public Iterable<String> matches(String prefix, int k) 
+	{
+		if(prefix ==null){
+			return null;
+		}
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 	
 }
