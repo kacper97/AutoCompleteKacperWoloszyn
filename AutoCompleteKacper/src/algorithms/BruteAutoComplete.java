@@ -1,8 +1,11 @@
 package algorithms;
 
+import java.util.ArrayList;
+
 public class BruteAutoComplete implements AutoComplete{
 	AutoCompleteAPI terms;  //implementing terms from AutoCompleteAPI
 	private double weightOfWord; // private field
+	private ArrayList<String> matches; // array list of matches
 	
 	@Override
 	public double weightOf(String term)// returns the weight of the term, or 0.0 if no such term exists.
@@ -49,11 +52,27 @@ public class BruteAutoComplete implements AutoComplete{
 	@Override
 	public Iterable<String> matches(String prefix, int k) 
 	{
-		if(prefix ==null){
-			return null;
+		matches = new ArrayList<String>();
+		if(prefix == null)
+		{
+			throw new NullPointerException("Term is null");
 		}
-		// TODO Auto-generated method stub
-		
+		if(k<terms.termList.size() && k>0)
+		{
+			for(int i = 0; matches.size()<k && i<terms.termList.size(); i++) //iterates through the whole array
+			{
+				String check = terms.termList.get(i).getWord();
+				if(check.startsWith(prefix) && matches.size()<k)
+				{
+					matches.add(terms.termList.get(i).getWord()); //adds word if there is a match
+				}
+			}
+		}
+		if(matches.size()==0)
+		{
+			return null;  // if no matches were found
+		}
+		return matches;
 	}
-	
+
 }
