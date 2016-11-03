@@ -18,7 +18,8 @@ public class Driver {
 		app.run();
 	}
 	
-	 private int menu(){ 
+	 private int menu()
+	 { 
 	        System.out.println("  1) BruteAutoComplete");    
 	        System.out.println("  0) Exit");
 	        System.out.print("Enter option -> ");
