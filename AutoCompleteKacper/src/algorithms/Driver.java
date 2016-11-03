@@ -18,7 +18,7 @@ public class Driver {
 		app.run();
 	}
 	
-	 private int menu(){ // Menu
+	 private int menu(){ 
 	        System.out.println("  1) BruteAutoComplete");    
 	        System.out.println("  0) Exit");
 	        System.out.print("Enter option -> ");
@@ -33,7 +33,7 @@ public class Driver {
 		{
 			switch (option)
 			{
-            case 1:    runBrute();
+            case 1:     bruteRun();
          	          	break;
             default:    System.out.println("Invalid option entered: " + option);
                         break;
@@ -42,13 +42,13 @@ public class Driver {
 		}
 	}
 	
-	private void runBrute()throws IOException
+	private void bruteRun()throws IOException
 	{
 		bruteauto = new BruteAutoComplete();
 		System.out.println("Please enter character(s) to autocomplete for ");
 		System.out.println("--> ");
 		String prefix = input.nextLine();
-		prefix = input.nextLine(); // makes sure that prefix is entered at next line
+		prefix=input.nextLine().toLowerCase();  // makes sure that prefix is entered at next line and converts it to lower case
 		System.out.println("How many matches would you like?: "); 
 		System.out.println("--> ");
 		int k = input.nextInt();

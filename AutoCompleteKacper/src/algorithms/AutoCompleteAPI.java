@@ -9,7 +9,6 @@ import java.io.InputStreamReader; //bridge from byte streams to character stream
 
 public class AutoCompleteAPI 
 {
-	private static final String urlData = "https://wit-computing.github.io/algorithms-2016/topic04/book-2/data/wiktionary.txt";
 	public List<Term> termList = new ArrayList<Term>();
 
 	public AutoCompleteAPI() throws IOException
@@ -19,22 +18,22 @@ public class AutoCompleteAPI
 
 	private void createList() throws IOException  
 	{
-	  BufferedReader in= null; 
+	  BufferedReader in= null; //Initializes buffer to null
 	  try
 		{
-		in = new BufferedReader(new InputStreamReader(new URL(urlData).openStream())); //Opens a connection to this URL and returns an InputStream for reading from that connection
+		in = new BufferedReader(new InputStreamReader(new URL("https://wit-computing.github.io/algorithms-2016/topic04/book-2/data/wiktionary.txt").openStream())); //Opens a connection to this URL and returns an InputStream for reading from that connection
 		String inputLine;
 		double weight;
 		String word;
 		String delims = "\t";   // the weight and the word is (delimited) by a space.
 		in.readLine();
 		 //reading the weights and terms
-			while ((inputLine = in.readLine()) != null)
+			while ((inputLine = in.readLine()) != null) // if the input line is not equal to null
 			{
-				String[] data= inputLine.split(delims); // parse user details string
+				String[] data= inputLine.split(delims); // split the line of data into a String[] by the tab divider
 				weight = Double.parseDouble(data[0]); // changes weight from String to Double as it is read in from the Link
-				word = data[1];
-				termList.add(new Term (weight,word));
+				word = data[1]; //data 1 is the second part of the read in url 
+				termList.add(new Term (weight,word)); // adds term to an arraylist
 				}
 		
 		 	}
