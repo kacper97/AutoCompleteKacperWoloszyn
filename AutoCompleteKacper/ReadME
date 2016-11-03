@@ -1,0 +1,10 @@
+This program reads in a value for weights and words associated with the weights from a URL.
+
+There is two options in the program as of now BruteAutoComplete and Exit.
+
+Specifications: https://wit-computing.github.io/algorithms-2016/topic04/book-2/index.html
+
+Test terms test the following : testCreateList, tests if the entered terms are what expected 
+								testListSize, tests the size of the list is 10000.
+								
+Kacper Woloszyn
